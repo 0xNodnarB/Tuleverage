@@ -9,14 +9,37 @@ body{
 	background-color: #f5f5f5;
 	font-family: 'Raleway', sans-serif;
 }
+
 /*Heading1*/
+
 h1{
 	color: #000000;
 	font-size: 44px;
 	margin-top: 40px;
 	text-align: center;
 }
+
+/*Heading2*/
+
+h2{
+	color: #000000;
+	font-size: 28px;
+	margin-top: 40px;
+	text-align: center;
+}
+
+/*Heading3*/
+
+h3{
+	color: #000000;
+	font-size: 22px;
+	margin-top: 40px;
+        margin-left: 490px
+}
+
+
 /*Button Line*/
+
 .flex-parent {
   display: flex;
 }
@@ -24,7 +47,11 @@ h1{
   justify-content: center;
 }
 button.margin-right {
-  margin-right: 20px;
+  margin-right: 40px;
+}
+.test {
+  height: 40px;
+  width:  120px;
 }
 
 </style>  
@@ -37,25 +64,28 @@ button.margin-right {
 
 <center><img  width="400" height="350" src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaC0qOJPjI88HpkudZQ-S97Y4svt3kQb-YB5WUyGlsPxkXB3QbdcvWV-CGZ92MbXeQX6xS8Q_TNhKUfI4CH8gwvtOMur=s1600"></center>
 
+<h2>How it works</h2>
+
+<p style="margin-left: 275px; margin-right: 275px; margin-top: 40px; margin-bottom: 30px">If you're not Danilo, sucks to be you!  Use the "Not Danilo" buttons below to buy $DTUL and periodically withdraw your share of Danilo's future income.</p>
+
+<p style="margin-left: 275px; margin-right: 275px">If you ARE Danilo, what on God's earth did we do to deserve you?  Whenever you feel that the $DTUL purchases have reached a worthy level, use the buttons below to legally commit 20% of your future income in exchange for the purchase pool and to periodically distribute your income to $DTUL holders.</p>
+
+<h2>For the two types of people in this world</h2>
+
+<h3 class="sentence">Not Danilo&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDanilo      
+</h3>
+
 <div class="flex-parent jc-center" style="margin-top: 20px">
-  <button onclick="doSomething()" class="margin-right">Not Danilo</button>
-  <button onclick="doSomething2()">Danilo</button>
+  <button type="submit" class="margin-right" class="test">Buy $DTUL Now!</button>
+  <button type="submit" class="test">Agree and Withdraw</button>
 </div>
 
-<h1 id="verdict"></h1>
+<div class="flex-parent jc-center" style="margin-top: 20px">
+  <button type="submit" class="margin-right" class="test">Withdraw Income</button>
+  <button type="submit" class="test">Distribute Income</button>
+</div>
 
-<script>
-  function doSomething(){
-      document.getElementById("verdict").innerHTML = "Do Better";
-
-  }
-
-  function doSomething2(){
-      document.getElementById("verdict").innerHTML = "You're a Chad";
-
-  }
-
-</script>
+<center><img  width="400" height="350" style="margin-top: 40px; margin-bottom: 40px" src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaCEATcDQ-aLMjDg4EID5Dn1uecS17DWjR8JtVZN5rp_repH-GW6x7KN3NHbLszQ-2rXzntdNElGfNIKKv8nNsgdoyV--w=s1600"></center>
 
 </body>
 </html>
