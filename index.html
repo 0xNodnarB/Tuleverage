@@ -49,10 +49,57 @@ h3{
 button.margin-right {
   margin-right: 40px;
 }
+
+button:hover {
+    background-color: #008DA5;
+    color: #FFF;
+    transition: all 0.3s ease 0s;
+}
+
 .test {
   height: 40px;
   width:  120px;
 }
+
+/*Popup*/
+
+.popup {
+  display: none;
+  position: fixed;
+  padding: 10px;
+  width:d 280px;
+  left: 50%;
+  margin-left: -150px;
+  height: 180px;
+  top: 50%;
+  margin-top: -100px;
+  background: #FFF;
+  border: 3px solid #009DA5;
+  z-index: 20;
+}
+
+#popup:after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -2;
+}
+
+#popup:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #FFF;
+  z-index: -1;
+}
+
 
 </style>  
 
@@ -77,7 +124,30 @@ button.margin-right {
 
 <div class="flex-parent jc-center" style="margin-top: 20px">
   <input type="number" placeholder="ETH to Convert" style="margin-right: 40px" class="test">
-  <button type="submit" class="test">Agree and Withdraw</button>
+  <button onclick="show('popup')" class="test">Agree and Withdraw</button>
+
+<!-- This is what will be included inside the popup -->
+<div class="popup" id="popup">
+  <center><p>BINDING LEGAL AGREEMENT</p></center>
+  <p>[Insert Text of Agreement]</p>
+  <p>I acknowledge that by clicking "Agree and Withdraw" below and signing a blockchain transaction to withdraw the proceeeds of any $DTUL sales, I am legally bound by the terms of this agreement, a copy of which will be stored on chain.</p>
+  <center><button type="submit" class="test" onclick="hide('popup')">Agree and Withdraw</button></center>
+</div>
+
+<script>
+
+$ = function(id) {
+  return document.getElementById(id);
+}
+
+var show = function(id) {
+	$(id).style.display ='block';
+}
+var hide = function(id) {
+	$(id).style.display ='none';
+}
+
+</script>
 </div>
 
 <div class="flex-parent jc-center" style="margin-top: 20px; margin-left: 45px">
