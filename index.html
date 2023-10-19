@@ -2,8 +2,7 @@
 <html>
 
 <head>
-  
-<style>
+  <style>
 
 body{
 	background-color: #f5f5f5;
@@ -38,14 +37,16 @@ h3{
 }
 
 
-/*Button Line*/
+/*Buttons*/
 
 .flex-parent {
   display: flex;
 }
+
 .jc-center {
   justify-content: center;
 }
+
 button.margin-right {
   margin-right: 40px;
 }
@@ -100,16 +101,14 @@ button:hover {
   z-index: -1;
 }
 
-
-</style>  
-
+  </style>
 </head>
 
 <body>
 
 <h1>Tuleverage</h1>
 
-<center><img  width="400" height="350" src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaC0qOJPjI88HpkudZQ-S97Y4svt3kQb-YB5WUyGlsPxkXB3QbdcvWV-CGZ92MbXeQX6xS8Q_TNhKUfI4CH8gwvtOMur=s1600"></center>
+  <center><img  width="400" height="350" src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaC0qOJPjI88HpkudZQ-S97Y4svt3kQb-YB5WUyGlsPxkXB3QbdcvWV-CGZ92MbXeQX6xS8Q_TNhKUfI4CH8gwvtOMur=s1600"></center>
 
 <h2>How it works</h2>
 
@@ -127,28 +126,30 @@ button:hover {
   <button onclick="show('popup')" class="test">Agree and Withdraw</button>
 
 <!-- This is what will be included inside the popup -->
-<div class="popup" id="popup">
-  <center><p>BINDING LEGAL AGREEMENT</p></center>
-  <p>[Insert Text of Agreement]</p>
-  <p>I acknowledge that by clicking "Agree and Withdraw" below and signing a blockchain transaction to withdraw the proceeeds of any $DTUL sales, I am legally bound by the terms of this agreement, a copy of which will be stored on chain.</p>
-  <center><button type="submit" class="test" onclick="hide('popup')">Agree and Withdraw</button></center>
-</div>
+    <div class="popup" id="popup">
+      <center><p>BINDING LEGAL AGREEMENT</p></center>
+      <p>I, Danilo Tuler, herein referred to as the "Undersigned", do hereby acknowledge, attest, and affirm that I shall, with full awareness and without coercion, remit a perpetual sum equal to twenty percent (20%) of the entirety of my gross revenue, derived from any and all sources, to the esteemed beneficiaries and recognized holders of the DTUL.</p>
+      <p>Furthermore, the Undersigned irrevocably commits to maintaining an amicable and enduring relationship with the two individuals, colloquially referenced as "dumbasses", who were responsible for the drafting, programming, and implementation of the code underpinning this application. This agreement is binding and shall be governed by and construed in accordance with applicable laws.</p>
+      <p>I acknowledge that by clicking "Agree and Withdraw" below and signing a blockchain transaction to withdraw the proceeeds of any $DTUL sales, I am legally bound by the terms of this agreement, a copy of which will be stored on chain.</p>
+      <center><button type="submit" class="test" onclick="hide('popup')">Agree and Withdraw</button></center>
+    </div>
 
-<script>
+     <script>
 
-$ = function(id) {
-  return document.getElementById(id);
-}
+       $ = function(id) {
+         return document.getElementById(id);
+       }
 
-var show = function(id) {
-	$(id).style.display ='block';
-}
-var hide = function(id) {
-	$(id).style.display ='none';
-}
+       var show = function(id) {
+	       $(id).style.display ='block';
+       }
 
-</script>
-</div>
+       var hide = function(id) {
+	       $(id).style.display ='none';
+       }
+
+     </script>
+  </div>
 
 <div class="flex-parent jc-center" style="margin-top: 20px; margin-left: 45px">
   <button type="submit" class="margin-right" class="test">Buy $DTUL Now!</button>
