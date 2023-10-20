@@ -101,6 +101,84 @@ button:hover {
   z-index: -1;
 }
 
+/*Popup2*/
+
+.popup2 {
+  display: none;
+  position: fixed;
+  padding: 10px;
+  width:d 280px;
+  left: 50%;
+  margin-left: -150px;
+  height: 350px;
+  top: 50%;
+  margin-top: -100px;
+  background: #FFF;
+  border: 3px solid #009DA5;
+  z-index: 20;
+}
+
+#popup2:after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -2;
+}
+
+#popup2:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #FFF;
+  z-index: -1;
+}
+
+/*Popup3*/
+
+.popup3 {
+  display: none;
+  position: fixed;
+  padding: 10px;
+  width:d 280px;
+  left: 50%;
+  margin-left: -150px;
+  height: 350px;
+  top: 50%;
+  margin-top: -100px;
+  background: #FFF;
+  border: 3px solid #009DA5;
+  z-index: 20;
+}
+
+#popup3:after {
+  position: fixed;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(0,0,0,0.5);
+  z-index: -2;
+}
+
+#popup3:before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #FFF;
+  z-index: -1;
+}
+
   </style>
 </head>
 
@@ -122,13 +200,18 @@ button:hover {
 </h3>
 
 <div class="flex-parent jc-center" style="margin-top: 20px">
-  <input type="number" placeholder="ETH to Convert" style="margin-right: 40px" class="test">
+	<button onclick="show('popup2')" class="test">Buy $DTUL Now!</button>
+  <!-- This is what will be included inside the popup2 -->
+    <div class="popup2" id="popup2">
+      <input type="number" placeholder="ETH to Convert" style="margin-right: 40px" class="test">
+      <center><button type="submit" class="test" onclick="hide('popup2')">Convert ETH to $DTUL</button></center>
+    </div>
   <button onclick="show('popup')" class="test">Agree and Withdraw</button>
 
 <!-- This is what will be included inside the popup -->
     <div class="popup" id="popup">
       <center><p>BINDING LEGAL AGREEMENT</p></center>
-      <p>I, Danilo Tuler, herein referred to as the "Undersigned", do hereby acknowledge, attest, and affirm that I shall, with full awareness and without coercion, remit a perpetual sum equal to twenty percent (20%) of the entirety of my gross revenue, derived from any and all sources, to the esteemed beneficiaries and recognized holders of the DTUL.</p>
+      <p>I, Danilo Tuler, herein referred to as the "Undersigned", do hereby acknowledge, attest, and affirm that I shall, with full awareness and without coercion, remit a perpetual sum equal to twenty percent (20%) of the entirety of my gross revenue, derived from any and all sources, to the esteemed beneficiaries and recognized holders of $DTUL.</p>
       <p>Furthermore, the Undersigned irrevocably commits to maintaining an amicable and enduring relationship with the two individuals, colloquially referenced as "dumbasses", who were responsible for the drafting, programming, and implementation of the code underpinning this application. This agreement is binding and shall be governed by and construed in accordance with applicable laws.</p>
       <p>I acknowledge that by clicking "Agree and Withdraw" below and signing a blockchain transaction to withdraw the proceeeds of any $DTUL sales, I am legally bound by the terms of this agreement, a copy of which will be stored on chain.</p>
       <center><button type="submit" class="test" onclick="hide('popup')">Agree and Withdraw</button></center>
@@ -152,13 +235,35 @@ button:hover {
   </div>
 
 <div class="flex-parent jc-center" style="margin-top: 20px; margin-left: 45px">
-  <button type="submit" class="margin-right" class="test">Buy $DTUL Now!</button>
-  <input type="number" placeholder="ETH to Distribute" style="margin-right: 40px" class="test">
+  <button type="submit" class="margin-right" class="test">Withdraw Income</button>
+  <button onclick="show('popup3')" class="test">Distribute Income</button>
+  <!-- This is what will be included inside the popup3 -->
+    <div class="popup3" id="popup3">
+      <input type="number" placeholder="ETH to Distribute" style="margin-right: 40px" class="test">
+      <center><button type="submit" class="test" onclick="hide('popup3')">Distribute ETH</button></center>
+    </div>
+    
+     <script>
+
+       $ = function(id) {
+         return document.getElementById(id);
+       }
+
+       var show = function(id) {
+	       $(id).style.display ='block';
+       }
+
+       var hide = function(id) {
+	       $(id).style.display ='none';
+       }
+
+     </script>
+ 
 </div>
 
 <div class="flex-parent jc-center" style="margin-top: 20px">
-  <button type="submit" class="margin-right" class="test">Withdraw Income</button>
-  <button type="submit" class="test">Distribute Income</button>
+  
+  
 </div>
 
 <center><img  width="400" height="350" style="margin-top: 40px; margin-bottom: 40px" src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaCEATcDQ-aLMjDg4EID5Dn1uecS17DWjR8JtVZN5rp_repH-GW6x7KN3NHbLszQ-2rXzntdNElGfNIKKv8nNsgdoyV--w=s1600"></center>
