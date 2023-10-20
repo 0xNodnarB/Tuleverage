@@ -200,21 +200,22 @@ button:hover {
 </h3>
 
 <div class="flex-parent jc-center" style="margin-top: 20px">
-	<button onclick="show('popup2')" class="margin-right" class="test">Buy $DTUL Now!</button>
+	<button onclick="show('popup2')" class="margin-right" class="test" href="#">Buy $DTUL Now!</button>
   <!-- This is what will be included inside the popup2 -->
     <div class="popup2" id="popup2">
       <input type="number" placeholder="ETH to Convert" style="margin-right: 40px" class="test">
       <center><button type="submit" class="test" onclick="hide('popup2')">Convert ETH to $DTUL</button></center>
+      <center><a href="#" onclick="hide('popup2')">Close</a></center>
     </div>
-  <button onclick="show('popup')" class="test">Agree and Withdraw</button>
-
-<!-- This is what will be included inside the popup -->
+  <button onclick="show('popup')" class="test" href="#">Agree and Withdraw</button>
+  <!-- This is what will be included inside the popup -->
     <div class="popup" id="popup">
       <center><p>BINDING LEGAL AGREEMENT</p></center>
       <p>I, Danilo Tuler, herein referred to as the "Undersigned", do hereby acknowledge, attest, and affirm that I shall, with full awareness and without coercion, remit a perpetual sum equal to twenty percent (20%) of the entirety of my gross revenue, derived from any and all sources, to the esteemed beneficiaries and recognized holders of $DTUL.</p>
       <p>Furthermore, the Undersigned irrevocably commits to maintaining an amicable and enduring relationship with the two individuals, colloquially referenced as "dumbasses", who were responsible for the drafting, programming, and implementation of the code underpinning this application. This agreement is binding and shall be governed by and construed in accordance with applicable laws.</p>
       <p>I acknowledge that by clicking "Agree and Withdraw" below and signing a blockchain transaction to withdraw the proceeeds of any $DTUL sales, I am legally bound by the terms of this agreement, a copy of which will be stored on chain.</p>
       <center><button type="submit" class="test" onclick="hide('popup')">Agree and Withdraw</button></center>
+      <center><a href="#" onclick="hide('popup')">Close</a></center>
     </div>
 
      <script>
@@ -236,11 +237,12 @@ button:hover {
 
 <div class="flex-parent jc-center" style="margin-top: 20px; margin-left: 45px">
   <button type="submit" class="margin-right" class="test">Withdraw Income</button>
-  <button onclick="show('popup3')" class="test">Distribute Income</button>
+  <button onclick="show('popup3')" class="test" href="#">Distribute Income</button>
   <!-- This is what will be included inside the popup3 -->
     <div class="popup3" id="popup3">
       <input type="number" placeholder="ETH to Distribute" style="margin-right: 40px" class="test">
       <center><button type="submit" class="test" onclick="hide('popup3')">Distribute ETH</button></center>
+      <center><a href="#" onclick="hide('popup3')">Close</a></center>
     </div>
 
      <script>
