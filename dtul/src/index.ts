@@ -23,61 +23,61 @@ Printed Name: Mister Tuler
 `;
 
 class Pot {
-    public totalAmount: number;
-    public usersDTULs: Map<UserId, number>;
-    public usersBalance: Map<UserId, number>;
+  public totalAmount: number;
+  public usersDTULs: Map<UserId, number>;
+  public usersBalance: Map<UserId, number>;
 
-    constructor() {
-        this.totalAmount = 0;
-        this.usersDTULs = new Map<UserId, number>();
-        this.usersBalance = new Map<UserId, number>();
-    }
-
-    deposit(userId: UserId, amount: number): void {
-        if (!this.usersDTULs.has(userId)) {
-            this.usersDTULs.set(userId, 0);
-            this.usersBalance.set(userId, 0);
-        }
-
-        this.totalAmount += amount;
-
-        for (let [user, DTULs] of this.usersDTULs) {
-            let proportion = DTULs / this.totalAmount;
-            this.usersDTULs.set(user, this.totalAmount * proportion);
-        }
-
-        let userDTULs = this.usersDTULs.get(userId) as number;
-        this.usersDTULs.set(userId, userDTULs + amount);
-    }
-
-    distribute(amount: number): void {
-      let totalDTULs = this.getTotalDTULs();
-
-      for (let [user, DTULs] of this.usersDTULs) {
-          let proportion = DTULs / totalDTULs;
-          let distribution = amount * proportion;
-          let userBalance = this.usersBalance.get(user) as number;
-          this.usersBalance.set(user, userBalance + distribution);
-
-          console.log(`transferring ${distribution} ether to user ${user}`);
-      }
+  constructor() {
+    this.totalAmount = 0;
+    this.usersDTULs = new Map<UserId, number>();
+    this.usersBalance = new Map<UserId, number>();
   }
 
-    getTotalAmount(): number {
-        return this.totalAmount;
+  deposit(userId: UserId, amount: number): void {
+    if (!this.usersDTULs.has(userId)) {
+      this.usersDTULs.set(userId, 0);
+      this.usersBalance.set(userId, 0);
     }
 
-    getDTULsForUser(userId: UserId): number {
-        return this.usersDTULs.get(userId) || 0;
+    this.totalAmount += amount;
+
+    for (let [user, DTULs] of this.usersDTULs) {
+      let proportion = DTULs / this.totalAmount;
+      this.usersDTULs.set(user, this.totalAmount * proportion);
     }
 
-    getTotalDTULs(): number {
-        let total = 0;
-        for (let DTULs of this.usersDTULs.values()) {
-            total += DTULs;
-        }
-        return total;
+    let userDTULs = this.usersDTULs.get(userId) as number;
+    this.usersDTULs.set(userId, userDTULs + amount);
+  }
+
+  distribute(amount: number): void {
+    let totalDTULs = this.getTotalDTULs();
+
+    for (let [user, DTULs] of this.usersDTULs) {
+      let proportion = DTULs / totalDTULs;
+      let distribution = amount * proportion;
+      let userBalance = this.usersBalance.get(user) as number;
+      this.usersBalance.set(user, userBalance + distribution);
+
+      console.log(`transferring ${distribution} ether to user ${user}`);
     }
+  }
+
+  getTotalAmount(): number {
+    return this.totalAmount;
+  }
+
+  getDTULsForUser(userId: UserId): number {
+    return this.usersDTULs.get(userId) || 0;
+  }
+
+  getTotalDTULs(): number {
+    let total = 0;
+    for (let DTULs of this.usersDTULs.values()) {
+      total += DTULs;
+    }
+    return total;
+  }
 }
 const rollupServer =
   process.env.ROLLUP_HTTP_SERVER_URL || "http://localhost:8080/host-runner";
@@ -107,7 +107,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
         return "accept";
 
       case "sign":
-        if(isTuler(senderAddr)){
+        if (isTuler(senderAddr)) {
           tulerSigned = true;
           console.log(message);
 
@@ -129,11 +129,11 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
         }
 
         return "accept";
-      
+
       case "transfer":
         const [to, amount] = args;
 
-        if ( isTuler(senderAddr) && tulerSigned) {
+        if (isTuler(senderAddr) && tulerSigned) {
           console.log("DANILO PAID HIS DUTIES")
           wallet.transferEther(metadata.msg_sender, to, amount);
 
@@ -144,7 +144,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
 
         if (!tulerSigned && !isTuler(senderAddr)) {
           console.log(`Transfering ${amount} to ${to}`);
-        
+
           pot.deposit(metadata.msg_sender, Number(amount));
           console.log(`SIZE OF THE POT: ${pot.getTotalAmount()} `);
           console.log(`DTULS OF ${metadata.msg_sender}:  ${pot.getDTULsForUser(metadata.msg_sender)}`);
