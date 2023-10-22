@@ -114,7 +114,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
           //let hexMessage = stringToHex(message);
           //app.createNotice({ payload: `${hexMessage}`})
 
-          wallet.withdrawEther(senderAddr, BigInt(pot.getTotalAmount()));
+          //wallet.withdrawEther(senderAddr, BigInt(pot.getTotalAmount()));
           logDaniloSigned(senderAddr, metadata.timestamp);
 
         } else {
@@ -133,7 +133,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
       case "transfer":
         const [to, amount] = args;
 
-        if (isTuler(getAddress(metadata.msg_sender)) && tulerSigned) {
+        if ( isTuler(senderAddr) && tulerSigned) {
           console.log("DANILO PAID HIS DUTIES")
           wallet.transferEther(metadata.msg_sender, to, amount);
 
@@ -142,7 +142,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
           return "accept";
         }
 
-        if (!tulerSigned && !isTuler(getAddress(metadata.msg_sender))) {
+        if (!tulerSigned && !isTuler(senderAddr)) {
           console.log(`Transfering ${amount} to ${to}`);
         
           pot.deposit(metadata.msg_sender, Number(amount));
