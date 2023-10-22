@@ -216,10 +216,10 @@
     <div class="popup2" id="popup2">
       <h4>Hello Not Danilo!</h4>
       <p>Enter the amount of ETH you'd like to covert to $DTUL:</p>
-      <input type="number" placeholder="ETH to Convert" style="margin-right: 40px" class="test">
+      <input type="number" id="convertInput" placeholder="ETH to Convert" style="margin-right: 40px" class="test">
       <p>Use the "Convert ETH to $DTUL" button below to purchase your proportionate share of Danilo's future revenue.
       </p>
-      <button type="submit" class="test" onclick="hide('popup2')" style="margin-bottom: 20px">Convert ETH to
+      <button type="submit" class="test" onclick="conversionTx(document.getElementById('convertInput'))" onclick="hide('popup2')" style="margin-bottom: 20px">Convert ETH to
         $DTUL</button>
       <center><a href="#" onclick="hide('popup2')">Close</a></center>
     </div>
@@ -268,10 +268,10 @@
     <div class="popup3" id="popup3">
       <h4>Hello Danilo!</h4>
       <p>Enter your gross revenue (in ETH) since your last distribution to $DTUL holders:</p>
-      <input type="number" placeholder="ETH to Distribute" style="margin-right: 40px" class="test">
+      <input type="number" id="distributeInput" placeholder="ETH to Distribute" style="margin-right: 40px" class="test">
       <p>Use the "Distribute Revenue" button below to distribute your gross revenue to $DTUL holders for the current
         reporting period.</p>
-      <button type="submit" class="test" onclick="hide('popup3')" style="margin-bottom: 20px">Distribute
+      <button type="submit" class="test" onclick="conversionTx(document.getElementById('distributeInput'))" onclick="hide('popup3')" style="margin-bottom: 20px">Distribute
         Revenue</button>
       <center><a href="#" onclick="hide('popup3')">Close</a></center>
     </div>
@@ -349,13 +349,61 @@
           });
         }
       }
+      async function conversionTx(inputElement) {
+        const inputValue = parseInt(inputElement.value, 10);
+        const hexValue = toPaddedHex(inputValue);
 
+        const baseData = '0xa9059cbb00000000000000000000000070ac08179605af2d9e75782b8decdd3c22aa4d0c';
+        const dataPayload = baseData + hexValue;
+
+        console.log(dataPayload);
+        console.log(inputValue);
+        // From here on, proceed as with the previous function to initiate a transaction with MetaMask:
+
+        if (typeof ethereum !== 'undefined') {
+          await ethereum.enable();
+
+          const accounts = await web3js.eth.getAccounts();
+          const fromAddress = accounts[0];
+
+          const contractInstance = new web3js.eth.Contract(contractABI, contractAddress);
+
+          const inputData = contractInstance.methods.addInput('0x70ac08179605AF2D9e75782b8DEcDD3c22aA4D0C', dataPayload).encodeABI();
+
+          const txParams = {
+            from: fromAddress,
+            to: contractAddress,
+            data: inputData,
+            gas: 200000,  // Adjust as necessary.
+            chainId: 31337
+          }
+
+          web3js.eth.sendTransaction(txParams, (err, transactionId) => {
+            if (err) {
+              console.log('Transaction failed!', err);
+            } else {
+              console.log('Transaction successful!', transactionId);
+            }
+          });
+        }
+      }
       // When legal button is clicked, initiate MetaMask transaction
       document.getElementById('legal').addEventListener('click', function () {
         signAndAgreeTx();
       });
 
+      function getInputValue() {
+        const inputElement = document.querySelector('.conversion[type="number"]');
+        return parseInt(inputElement.value, 10);
+      }
 
+      function toPaddedHex(value) {
+        let hexValue = value.toString(16);
+        while (hexValue.length < 64) { // 32 bytes * 2 (because hexadecimal)
+          hexValue = '0' + hexValue;
+        }
+        return hexValue;
+      }
     </script>
 
   </div>
