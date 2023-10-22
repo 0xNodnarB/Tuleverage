@@ -4,352 +4,371 @@
 
 <head>
   <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: 'Raleway', sans-serif;
+    }
 
-body{
-	background-color: #f5f5f5;
-	font-family: 'Raleway', sans-serif;
-}
+    /*Heading1*/
 
-/*Heading1*/
+    h1 {
+      color: #000000;
+      font-size: 44px;
+      margin-top: 40px;
+      text-align: center;
+    }
 
-h1{
-	color: #000000;
-	font-size: 44px;
-	margin-top: 40px;
-	text-align: center;
-}
+    /*Heading2*/
 
-/*Heading2*/
+    h2 {
+      color: #000000;
+      font-size: 28px;
+      margin-top: 40px;
+      text-align: center;
+    }
 
-h2{
-	color: #000000;
-	font-size: 28px;
-	margin-top: 40px;
-	text-align: center;
-}
+    /*Heading3*/
 
-/*Heading3*/
+    h3 {
+      color: #000000;
+      font-size: 22px;
+      margin-top: 40px;
+      margin-left: 490px
+    }
 
-h3{
-	color: #000000;
-	font-size: 22px;
-	margin-top: 40px;
-  margin-left: 490px
-}
+    /*Heading4*/
 
-/*Heading4*/
+    h4 {
+      color: #000000;
+      font-size: 22px;
+      margin-top: 20px;
+    }
 
-h4{
-	color: #000000;
-	font-size: 22px;
-	margin-top: 20px;
-}
+    /*Buttons*/
 
-/*Buttons*/
+    .flex-parent {
+      display: flex;
+    }
 
-.flex-parent {
-  display: flex;
-}
+    .jc-center {
+      justify-content: center;
+    }
 
-.jc-center {
-  justify-content: center;
-}
+    button.margin-right {
+      margin-right: 40px;
+    }
 
-button.margin-right {
-  margin-right: 40px;
-}
+    button:hover {
+      background-color: #008DA5;
+      color: #FFF;
+      transition: all 0.3s ease 0s;
+    }
 
-button:hover {
-    background-color: #008DA5;
-    color: #FFF;
-    transition: all 0.3s ease 0s;
-}
+    .test {
+      height: 40px;
+      width: 120px;
+    }
 
-.test {
-  height: 40px;
-  width:  120px;
-}
+    /*Popup*/
 
-/*Popup*/
+    .popup {
+      display: none;
+      position: fixed;
+      padding: 10px;
+      width: d 280px;
+      left: 50%;
+      margin-left: -150px;
+      height: 460px;
+      top: 50%;
+      margin-top: -100px;
+      background: #FFF;
+      border: 3px solid #009DA5;
+      z-index: 20;
+    }
 
-.popup {
-  display: none;
-  position: fixed;
-  padding: 10px;
-  width:d 280px;
-  left: 50%;
-  margin-left: -150px;
-  height: 460px;
-  top: 50%;
-  margin-top: -100px;
-  background: #FFF;
-  border: 3px solid #009DA5;
-  z-index: 20;
-}
+    #popup:after {
+      position: fixed;
+      content: "";
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -2;
+    }
 
-#popup:after {
-  position: fixed;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: -2;
-}
+    #popup:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: #FFF;
+      z-index: -1;
+    }
 
-#popup:before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #FFF;
-  z-index: -1;
-}
+    /*Popup2*/
 
-/*Popup2*/
+    .popup2 {
+      display: none;
+      position: fixed;
+      padding: 10px;
+      width: d 280px;
+      left: 50%;
+      margin-left: -150px;
+      height: 350px;
+      top: 50%;
+      margin-top: -100px;
+      background: #FFF;
+      border: 3px solid #009DA5;
+      z-index: 20;
+    }
 
-.popup2 {
-  display: none;
-  position: fixed;
-  padding: 10px;
-  width:d 280px;
-  left: 50%;
-  margin-left: -150px;
-  height: 350px;
-  top: 50%;
-  margin-top: -100px;
-  background: #FFF;
-  border: 3px solid #009DA5;
-  z-index: 20;
-}
+    #popup2:after {
+      position: fixed;
+      content: "";
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -2;
+    }
 
-#popup2:after {
-  position: fixed;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: -2;
-}
+    #popup2:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: #FFF;
+      z-index: -1;
+    }
 
-#popup2:before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #FFF;
-  z-index: -1;
-}
+    /*Popup3*/
 
-/*Popup3*/
+    .popup3 {
+      display: none;
+      position: fixed;
+      padding: 10px;
+      width: d 280px;
+      left: 50%;
+      margin-left: -150px;
+      height: 350px;
+      top: 50%;
+      margin-top: -100px;
+      background: #FFF;
+      border: 3px solid #009DA5;
+      z-index: 20;
+    }
 
-.popup3 {
-  display: none;
-  position: fixed;
-  padding: 10px;
-  width:d 280px;
-  left: 50%;
-  margin-left: -150px;
-  height: 350px;
-  top: 50%;
-  margin-top: -100px;
-  background: #FFF;
-  border: 3px solid #009DA5;
-  z-index: 20;
-}
+    #popup3:after {
+      position: fixed;
+      content: "";
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -2;
+    }
 
-#popup3:after {
-  position: fixed;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: rgba(0,0,0,0.5);
-  z-index: -2;
-}
-
-#popup3:before {
-  position: absolute;
-  content: "";
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background: #FFF;
-  z-index: -1;
-}
-
+    #popup3:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: #FFF;
+      z-index: -1;
+    }
   </style>
 </head>
 
 <body>
 
-<h1>Tuleverage</h1>
+  <h1>Tuleverage</h1>
 
-  <center><img  width="400" height="350" src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaC0qOJPjI88HpkudZQ-S97Y4svt3kQb-YB5WUyGlsPxkXB3QbdcvWV-CGZ92MbXeQX6xS8Q_TNhKUfI4CH8gwvtOMur=s1600"></center>
+  <center><img width="400" height="350"
+      src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaC0qOJPjI88HpkudZQ-S97Y4svt3kQb-YB5WUyGlsPxkXB3QbdcvWV-CGZ92MbXeQX6xS8Q_TNhKUfI4CH8gwvtOMur=s1600">
+  </center>
 
-<h2>For the two types of people in this world</h2>
+  <h2>For the two types of people in this world</h2>
 
-<p style="margin-left: 275px; margin-right: 275px; margin-top: 40px; margin-bottom: 30px">If you're not Danilo, that's unfortunate for you.  But don't fret!  Use the "Not Danilo" buttons below to buy $DTUL and periodically withdraw your share of Danilo's future revenue.</p>
+  <p style="margin-left: 275px; margin-right: 275px; margin-top: 40px; margin-bottom: 30px">If you're not Danilo, that's
+    unfortunate for you. But don't fret! Use the "Not Danilo" buttons below to buy $DTUL and periodically withdraw your
+    share of Danilo's future revenue.</p>
 
-<p style="margin-left: 275px; margin-right: 275px">If you ARE Danilo, what on God's earth did we do to deserve you?  Whenever you feel that the $DTUL purchases have reached a worthy level, use the "Danilo" buttons below to legally commit 20% of your future income in exchange for the purchase pool and to periodically distribute your revenue to $DTUL holders.</p>
+  <p style="margin-left: 275px; margin-right: 275px">If you ARE Danilo, what on God's earth did we do to deserve you?
+    Whenever you feel that the $DTUL purchases have reached a worthy level, use the "Danilo" buttons below to legally
+    commit 20% of your future income in exchange for the purchase pool and to periodically distribute your revenue to
+    $DTUL holders.</p>
 
-<h3 class="sentence">Not Danilo&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDanilo      
-</h3>
+  <h3 class="sentence">Not Danilo&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspDanilo
+  </h3>
 
-<div class="flex-parent jc-center" style="margin-top: 20px">
-	<button onclick="show('popup2')" class="margin-right" class="test" href="#">Buy $DTUL Now!</button>
-  <!-- This is what will be included inside the popup2 -->
+  <div class="flex-parent jc-center" style="margin-top: 20px">
+    <button onclick="show('popup2')" class="margin-right" class="test" href="#">Buy $DTUL Now!</button>
+    <!-- This is what will be included inside the popup2 -->
     <div class="popup2" id="popup2">
-    	<h4>Hello Not Danilo!</h4>
-    	<p>Enter the amount of ETH you'd like to covert to $DTUL:</p>
+      <h4>Hello Not Danilo!</h4>
+      <p>Enter the amount of ETH you'd like to covert to $DTUL:</p>
       <input type="number" placeholder="ETH to Convert" style="margin-right: 40px" class="test">
-      <p>Use the "Convert ETH to $DTUL" button below to purchase your proportionate share of Danilo's future revenue.</p>
-      <button type="submit" class="test" onclick="hide('popup2')" style="margin-bottom: 20px">Convert ETH to $DTUL</button>
+      <p>Use the "Convert ETH to $DTUL" button below to purchase your proportionate share of Danilo's future revenue.
+      </p>
+      <button type="submit" class="test" onclick="hide('popup2')" style="margin-bottom: 20px">Convert ETH to
+        $DTUL</button>
       <center><a href="#" onclick="hide('popup2')">Close</a></center>
     </div>
-  <button onclick="show('popup')" class="test"  href="#">Agree and Withdraw</button>
-  <!-- This is what will be included inside the popup -->
+    <button onclick="show('popup')" class="test" href="#">Agree and Withdraw</button>
+    <!-- This is what will be included inside the popup -->
     <div class="popup" id="popup">
       <h4>Hello Danilo!</h4>
-      <center><p>BINDING LEGAL AGREEMENT</p></center>
-      <p>I, Danilo Tuler, do hereby agree that I shall, with full awareness and without coercion, remit a perpetual sum equal to twenty percent (20%) of the entirety of my gross revenue, derived from any and all sources, to the beneficiaries and recognized holders of $DTUL.</p>
-      <p>Furthermore, I irrevocably commit to maintaining an amicable and enduring relationship with the two individuals, colloquially referenced as "dumbasses", who were responsible for the drafting, programming, and implementation of the code underpinning this application. This agreement is binding and shall be governed by and construed in accordance with applicable laws.</p>
-      <p>By clicking "Agree and Withdraw" below and signing a blockchain transaction to withdraw the proceeeds of any $DTUL sales, I am legally bound by the terms of this agreement.</p>
-      <center><button type="submit" id="legal" class="test" onclick="hide('popup')" style="margin-bottom: 20px">Agree and Withdraw</button></center>
+      <center>
+        <p>BINDING LEGAL AGREEMENT</p>
+      </center>
+      <p>I, Danilo Tuler, do hereby agree that I shall, with full awareness and without coercion, remit a perpetual sum
+        equal to twenty percent (20%) of the entirety of my gross revenue, derived from any and all sources, to the
+        beneficiaries and recognized holders of $DTUL.</p>
+      <p>Furthermore, I irrevocably commit to maintaining an amicable and enduring relationship with the two
+        individuals, colloquially referenced as "dumbasses", who were responsible for the drafting, programming, and
+        implementation of the code underpinning this application. This agreement is binding and shall be governed by and
+        construed in accordance with applicable laws.</p>
+      <p>By clicking "Agree and Withdraw" below and signing a blockchain transaction to withdraw the proceeeds of any
+        $DTUL sales, I am legally bound by the terms of this agreement.</p>
+      <center><button type="submit" id="legal" class="test" onclick="hide('popup')" style="margin-bottom: 20px">Agree
+          and Withdraw</button></center>
       <center><a href="#" onclick="hide('popup')">Close</a></center>
     </div>
 
-     <script>
+    <script>
 
-       $ = function(id) {
-         return document.getElementById(id);
-       }
+      $ = function (id) {
+        return document.getElementById(id);
+      }
 
-       var show = function(id) {
-	       $(id).style.display ='block';
-       }
+      var show = function (id) {
+        $(id).style.display = 'block';
+      }
 
-       var hide = function(id) {
-	       $(id).style.display ='none';
-       }
+      var hide = function (id) {
+        $(id).style.display = 'none';
+      }
 
-     </script>
+    </script>
   </div>
 
-<div class="flex-parent jc-center" style="margin-top: 20px">
-  <button type="submit" class="margin-right" class="test">Withdraw Revenue</button>
-  <button onclick="show('popup3')" class="test" href="#">Distribute Revenue</button>
-  <!-- This is what will be included inside the popup3 -->
+  <div class="flex-parent jc-center" style="margin-top: 20px">
+    <button type="submit" class="margin-right" class="test">Withdraw Revenue</button>
+    <button onclick="show('popup3')" class="test" href="#">Distribute Revenue</button>
+    <!-- This is what will be included inside the popup3 -->
     <div class="popup3" id="popup3">
-    	<h4>Hello Danilo!</h4>
-    	<p>Enter your gross revenue (in ETH) since your last distribution to $DTUL holders:</p>
+      <h4>Hello Danilo!</h4>
+      <p>Enter your gross revenue (in ETH) since your last distribution to $DTUL holders:</p>
       <input type="number" placeholder="ETH to Distribute" style="margin-right: 40px" class="test">
-      <p>Use the "Distribute Revenue" button below to distribute your gross revenue to $DTUL holders for the current reporting period.</p>
-      <button type="submit" class="test" onclick="hide('popup3')" style="margin-bottom: 20px">Distribute Revenue</button>
+      <p>Use the "Distribute Revenue" button below to distribute your gross revenue to $DTUL holders for the current
+        reporting period.</p>
+      <button type="submit" class="test" onclick="hide('popup3')" style="margin-bottom: 20px">Distribute
+        Revenue</button>
       <center><a href="#" onclick="hide('popup3')">Close</a></center>
     </div>
 
-     <script>
+    <script>
 
-       $ = function(id) {
-         return document.getElementById(id);
-       }
+      $ = function (id) {
+        return document.getElementById(id);
+      }
 
-       var show = function(id) {
-	       $(id).style.display ='block';
-       }
+      var show = function (id) {
+        $(id).style.display = 'block';
+      }
 
-       var hide = function(id) {
-	       $(id).style.display ='none';
-       }
-    // First, check if Web3 has been injected by the browser (Mist/MetaMask)
-    let web3js;
-    if (typeof web3 !== 'undefined') {
-      // Use Mist/MetaMask's provider
-      web3js = new Web3(web3.currentProvider);
-    } else {
-      console.log('No web3? Please trying using MetaMask!');
-    }
-
-    async function initiateMetaMaskTransaction() {
-      if (typeof ethereum !== 'undefined') {
-        await ethereum.enable();
-
-        // Get the user's current account (address) from MetaMask
-        const accounts = await web3js.eth.getAccounts();
-        const fromAddress = accounts[0];
-
-
-        // Assuming your contract ABI includes the addInput function
-        const contractABI = [ 
+      var hide = function (id) {
+        $(id).style.display = 'none';
+      }
+      // First, check if Web3 has been injected by the browser (Mist/MetaMask)
+      let web3js;
+      if (typeof web3 !== 'undefined') {
+        // Use Mist/MetaMask's provider
+        web3js = new Web3(web3.currentProvider);
+      } else {
+        console.log('No web3? Please trying using MetaMask!');
+      }
+      const contractABI = [
+        {
+          "constant": false,
+          "inputs": [
             {
-                "constant": false,
-                "inputs": [
-                    {
-                        "name": "_address",
-                        "type": "address"
-                    },
-                    {
-                        "name": "_calldata",
-                        "type": "bytes"
-                    }
-                ],
-                "name": "addInput",
-                "outputs": [],
-                "payable": false,
-                "stateMutability": "nonpayable",
-                "type": "function"
+              "name": "_address",
+              "type": "address"
+            },
+            {
+              "name": "_calldata",
+              "type": "bytes"
             }
-            // ... other ABI items ...
-        ];
+          ],
+          "name": "addInput",
+          "outputs": [],
+          "payable": false,
+          "stateMutability": "nonpayable",
+          "type": "function"
+        }
+      ];
 
-        const contractAddress = '0x59b22D57D4f067708AB0c00552767405926dc768';
-        const contractInstance = new web3js.eth.Contract(contractABI, contractAddress);
+      const contractAddress = '0x59b22D57D4f067708AB0c00552767405926dc768';
 
-        const inputData = contractInstance.methods.addInput('0x70ac08179605AF2D9e75782b8DEcDD3c22aA4D0C', '0x2ca15122').encodeABI();
+      async function signAndAgreeTx() {
+        if (typeof ethereum !== 'undefined') {
+          await ethereum.enable();
 
-        const txParams = {
+          // Get the user's current account (address) from MetaMask
+          const accounts = await web3js.eth.getAccounts();
+          const fromAddress = accounts[0];
+
+          const contractInstance = new web3js.eth.Contract(contractABI, contractAddress);
+
+          const inputData = contractInstance.methods.addInput('0x70ac08179605AF2D9e75782b8DEcDD3c22aA4D0C', '0x2ca15122').encodeABI();
+
+          const txParams = {
             from: fromAddress,
             to: contractAddress,
             data: inputData,
-            gas: 200000,  // You might need to adjust the gas limit based on the function's consumption
-            chainId: 31337 // This is for the local testnet. Adjust if needed.
-        }
+            gas: 200000,
+            chainId: 31337
+          }
 
-        web3js.eth.sendTransaction(txParams, (err, transactionId) => {
+          web3js.eth.sendTransaction(txParams, (err, transactionId) => {
             if (err) {
-                console.log('Transaction failed!', err);
+              console.log('Transaction failed!', err);
             } else {
-                console.log('Transaction successful!', transactionId);
+              console.log('Transaction successful!', transactionId);
             }
-        });      }
-    }
+          });
+        }
+      }
 
-    // When legal button is clicked, initiate MetaMask transaction
-    document.getElementById('legal').addEventListener('click', function () {
-      initiateMetaMaskTransaction();
-    });
+      // When legal button is clicked, initiate MetaMask transaction
+      document.getElementById('legal').addEventListener('click', function () {
+        signAndAgreeTx();
+      });
 
 
-     </script>
- 
-</div>
+    </script>
 
-<div class="flex-parent jc-center" style="margin-top: 20px">
-  
-  
-</div>
+  </div>
 
-<center><img  width="400" height="350" style="margin-top: 40px; margin-bottom: 40px" src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaCEATcDQ-aLMjDg4EID5Dn1uecS17DWjR8JtVZN5rp_repH-GW6x7KN3NHbLszQ-2rXzntdNElGfNIKKv8nNsgdoyV--w=s1600"></center>
+  <div class="flex-parent jc-center" style="margin-top: 20px">
+
+
+  </div>
+
+  <center><img width="400" height="350" style="margin-top: 40px; margin-bottom: 40px"
+      src="https://lh3.googleusercontent.com/drive-viewer/AK7aPaCEATcDQ-aLMjDg4EID5Dn1uecS17DWjR8JtVZN5rp_repH-GW6x7KN3NHbLszQ-2rXzntdNElGfNIKKv8nNsgdoyV--w=s1600">
+  </center>
 
 </body>
+
 </html>
