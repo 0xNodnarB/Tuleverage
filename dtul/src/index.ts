@@ -4,7 +4,7 @@ import { createWallet } from "@deroll/wallet";
 import { decodeFunctionData, getAddress, parseAbi, stringToHex } from "viem";
 import { verifyMessage } from "viem/dist/types/actions/public/verifyMessage";
 type UserId = string;
-const message = `
+const messageToSign = `
 I, Danilo Tuler,
 
 herein referred to as the "Undersigned",
@@ -20,6 +20,16 @@ who were responsible for the drafting, programming, and implementation of the co
 
 This agreement is binding and shall be governed by and construed in accordance with applicable laws.
 Printed Name: Mister Tuler
+`;
+
+const attemptedFraudMessage = `
+To Whom It May Concern:
+
+Regrettably, your attestation does not align with our records indicating that you are not, in fact, the aforementioned "Danilo". Simply put, you lack the requisite 'chad' credentials. We advise diligence and integrity in your future interactions.
+
+Be forewarned: any subsequent attempt to misrepresent oneself or impersonate another party, especially within this blockchain domain, may result in legal repercussions. Remember: this is blockchain, yo – all transactions and declarations are irrevocably recorded.
+
+Exercise caution.
 `;
 
 class Pot {
@@ -109,7 +119,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
       case "sign":
         if (isTuler(senderAddr)) {
           tulerSigned = true;
-          console.log(message);
+          console.log(messageToSign);
 
           //let hexMessage = stringToHex(message);
           //app.createNotice({ payload: `${hexMessage}`})
@@ -117,15 +127,10 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
           //wallet.withdrawEther(senderAddr, BigInt(pot.getTotalAmount()));
           logDaniloSigned(senderAddr, metadata.timestamp);
 
+          console.log(`DANILO GOT ${pot.getTotalAmount()} ether for agreeing with the deal`);
+
         } else {
-          console.log("To Whom It May Concern:");
-          console.log("");
-          console.log("Regrettably, your attestation does not align with our records indicating that you are not, in fact, the aforementioned \"Danilo\". Simply put, you lack the requisite 'chad' credentials. We advise diligence and integrity in your future interactions.");
-          console.log("");
-          console.log("Be forewarned: any subsequent attempt to misrepresent oneself or impersonate another party, especially within this blockchain domain, may result in legal repercussions.");
-          console.log("Remember: this is blockchain, yo – all transactions and declarations are irrevocably recorded.");
-          console.log("");
-          console.log("Exercise caution.");
+          console.log(attemptedFraudMessage);
         }
 
         return "accept";
@@ -134,7 +139,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
         const [to, amount] = args;
 
         if (isTuler(senderAddr) && tulerSigned) {
-          console.log("DANILO PAID HIS DUTIES")
+          console.log("DTULER PAID HIS DUTIES")
           wallet.transferEther(metadata.msg_sender, to, amount);
 
           pot.distribute(Number(amount));
@@ -146,9 +151,9 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
           console.log(`Transfering ${amount} to ${to}`);
 
           pot.deposit(metadata.msg_sender, Number(amount));
-          console.log(`SIZE OF THE POT: ${pot.getTotalAmount()} `);
-          console.log(`DTULS OF ${metadata.msg_sender}:  ${pot.getDTULsForUser(metadata.msg_sender)}`);
-          console.log(`TOTAL DTULs ${pot.getTotalDTULs()} `);
+          console.log(`THERE IS NOW: ${pot.getTotalAmount()} ETHER IN THE POT`);
+          console.log(`USER at ${metadata.msg_sender} now has ${pot.getDTULsForUser(metadata.msg_sender)} DTULs`);
+          console.log(`TOTAL SUPPLY of DTULs is: ${pot.getTotalDTULs()} `);
 
           wallet.transferEther(metadata.msg_sender, to, amount);
 
@@ -157,7 +162,7 @@ app.addAdvanceHandler(async ({ payload, metadata }) => {
 
         console.log("Are you dtul or are you a fool?");
         console.log("either the man has signed, and is no longer selling himself");
-        console.log("or you're man, you havent signed and there is no point in distributing revenue");
+        console.log("or you're the man, you havent signed and there is no point in distributing revenue");
 
         return "accept";
     }
